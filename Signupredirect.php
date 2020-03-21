@@ -61,7 +61,7 @@
 			<div class="container">
 				<div class="container">
 	<div class="d-flex justify-content-center h-100">
-		<a class="btn float-left login_btn" href="signupworkspace.php"> workspace </a>
+		<a class="btn float-right login_btn" href="signupworkspace.php"> workspace </a>
 		<br>
 		<a class="btn float-right login_btn" href="signupuser.php"> User </a>
 </div>

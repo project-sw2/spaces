@@ -101,7 +101,7 @@ if(isset($_POST ['email_']) &&  isset($_POST['password_']))
 					</div>
 				<input type="hidden" name="groupid" value="2">
 					<div class="form-group">
-						<input type="submit" value="Signup" class="btn float-right login_btn" href="index.php">
+						<input type="submit" value="Signup" class="btn float-right login_btn" >
 
 					</div>
 
