@@ -197,7 +197,18 @@ body {
 	display: inline-block;
 
 }
+
 #Editprofile>div {
+	border: 1px solid rgb(235,235,235);
+	margin-left: 50px;
+	float: left;
+	border-radius: 5px;
+	min-width: 700px;
+	height: 600px;
+	display: inline-block;
+}
+#requests>div
+{
 	border: 1px solid rgb(235,235,235);
 	margin-left: 50px;
 	float: left;
@@ -208,6 +219,39 @@ body {
 
 }
 
+#timetable>div
+{
+	border: 1px solid rgb(235,235,235);
+	margin-left: 50px;
+	float: left;
+	border-radius: 5px;
+	min-width: 700px;
+	height: 500px;
+	display: inline-block;
+}
+
+#reports>div
+{
+	border: 1px solid rgb(235,235,235);
+	margin-left: 50px;
+	float: left;
+	border-radius: 5px;
+	min-width: 700px;
+	height: 600px;
+	display: inline-block;
+
+}
+#approve>div
+{
+	border: 1px solid rgb(235,235,235);
+	margin-left: 50px;
+	float: left;
+	border-radius: 5px;
+	min-width: 700px;
+	height: 600px;
+	display: inline-block;
+
+}
 
 .active-purple input[type=text] {
 border-bottom: 1px solid #ce93d8;

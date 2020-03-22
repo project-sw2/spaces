@@ -5,13 +5,17 @@ $signup = new user();
 $db = new connection();
 if(isset($_POST ['email_']) &&  isset($_POST['password_']))
 {
-	
+		$name = $_POST['name_'];
 		$email = $_POST['email_'];
 		$password =$_POST['password_'];
 		$groupid = $_POST['groupid'];
-		if($email != "" && $password != "")
+		$username = $_POST['username_'];
+		$description = $_POST['description_'];
+		$price = $_POST['price_'];
+		$location = $_POST['location_'];
+		if($email != "" && $password != ""  && $username != "")
 				{
-		$signup->signup($email , $password ,$groupid);
+		$signup->signupWorkSpace($name ,$email, $password ,$groupid,$username , $description , $price , $location);
 	}
 
 }
@@ -47,16 +51,14 @@ if(isset($_POST ['email_']) &&  isset($_POST['password_']))
 						<nav class="main_nav ml-auto mr-auto">
 							<ul class="d-flex flex-row align-items-center justify-content-start">
 								<li><a href="index.php">Home</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="WorkSpaces.php">WorkSpaces</a></li>
-								<li><a href="about.php">About us</a></li>
+								<li><a href="aboutUs.php">About us</a></li>
 								<li><a href="contact.php">Contact</a></li>
 							</ul>
 						</nav>
 						<div class="log_reg">
 							<div class="log_reg_content d-flex flex-row align-items-center justify-content-start">
 								<div class="login log_reg_text"> <a href="login.php">Login</a></div>
-								<div class="register log_reg_text"><a href="SignUp.php">Register</a></div>
+								<div class="register log_reg_text"><a href="Signupredirect.php">Register</a></div>
 							</div>
 						</div>
 						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -77,15 +79,21 @@ if(isset($_POST ['email_']) &&  isset($_POST['password_']))
 		<div class="cloud cloud_4"><img src="images/cloud.png" alt=""></div>
 		<div class="home_container">
 			<div class="container">
+				<h3  class="d-flex justify-content-center h-100" style="color:white">Sign Up | WorkSpace</h3>
 				<div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
-			<div class="card-header">
-				<h3>Sign Up | WorkSpace</h3>
-				
-			</div>
 			<div class="card-body">
 				<form method="POST">
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							
+						</div>
+						<input type="text" class="form-control" placeholder="Name" name="name_">
+						
+					</div>
+
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							
@@ -93,15 +101,44 @@ if(isset($_POST ['email_']) &&  isset($_POST['password_']))
 						<input type="text" class="form-control" placeholder="Email" name="email_">
 						
 					</div>
-													
-
-
+												
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							
 						</div>
 						<input type="password" class="form-control" placeholder="password" name="password_">
 					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							
+						</div>
+						<input type="username" class="form-control" placeholder="username" name="username_">
+					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							
+						</div>
+						<input type="text" class="form-control" placeholder="description" name="description_">
+					</div>
+
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							
+						</div>
+						<input type="text" class="form-control" placeholder="price" name="price_">
+					</div>
+
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							
+						</div>
+						<input type="text" class="form-control" placeholder="location" name="location_">
+					</div>
+
 				<input type="hidden" name="groupid" value="1">
 					<div class="form-group">
 						<input type="submit" value="Signup" class="btn float-right login_btn">

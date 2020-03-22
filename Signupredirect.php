@@ -29,16 +29,14 @@
 						<nav class="main_nav ml-auto mr-auto">
 							<ul class="d-flex flex-row align-items-center justify-content-start">
 								<li><a href="index.php">Home</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="WorkSpaces.php">WorkSpaces</a></li>
-								<li><a href="about.php">About us</a></li>
+								<li><a href="aboutUs.php">About us</a></li>
 								<li><a href="contact.php">Contact</a></li>
 							</ul>
 						</nav>
 						<div class="log_reg">
 							<div class="log_reg_content d-flex flex-row align-items-center justify-content-start">
 								<div class="login log_reg_text"> <a href="login.php">Login</a></div>
-								<div class="register log_reg_text"><a href="SignUp.php">Register</a></div>
+								<div class="register log_reg_text"><a href="Signupredirect.php">Register</a></div>
 							</div>
 						</div>
 						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -61,9 +59,13 @@
 			<div class="container">
 				<div class="container">
 	<div class="d-flex justify-content-center h-100">
-		<a class="btn float-right login_btn" href="signupworkspace.php"> workspace </a>
+		<form action="signupworkspace.php">
+		<button type="submit" class="btn btn-success" style="padding: 10px ;margin-right: 40px ;width: 300px">Register As WorkSpace</button>
+		</form>
 		<br>
-		<a class="btn float-right login_btn" href="signupuser.php"> User </a>
+		<form action="signupuser.php">
+		<button type="submit" class="btn btn-warning" style="padding: 10px ;margin-right: 40px ; width: 300px">Continue as A user </button>
+		</form>
 </div>
 </div>
 </div>
