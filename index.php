@@ -31,8 +31,6 @@
 							<ul class="d-flex flex-row align-items-center justify-content-start">
 								<li class="active"><a href="index.php">Home</a></li> 			
               			
-								<li><a href="aboutUs.php">About us</a></li>
-								<li><a href="contact.php">Contact</a></li>
 							</ul>
 						</nav>
 							{
@@ -72,6 +70,57 @@
 		</div>
 	</div>
 
+<footer class="footer magic_fade_in">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-6 footer_col magic_fade_in">
+					<div class="footer_about">
+						<div class="footer_logo">About<span>US</span></div>
+						<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by crona team <i class="fa fa-heart-o" aria-hidden="true"></i>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+						<div class="footer_text">
+							<p>Corona Team</p>
+							<p >Ahmed Khaled Badawy</p>
+                            <p>Mohamed Aziz</p>
+                            <p>Mohamed Abdelrhman Yassen</p>
+                            <p >Saleh Mohamed Saleh</p>
+                            <p >Doaa El-Gendy</p>
+						</div>
+						
+						
+					</div>
+				</div>
+
+				<div class="col-lg-6 footer_col">
+					<div class="footer_links">
+						<div class="row">
+							<div class="col-sm-6 footer_list_col magic_fade_in">
+								<div class="footer_list_container">
+									<div class="footer_list_title">CONTACT</div>
+									<ul class="footer_list">
+										<li><a>Corona Team</a></li>
+										<li><a >Email : ahmedbadawy0003@gmail.com</a></li>
+										<li><a >Email : mohamed.aziz.4680@gmail.com</a></li>
+										<li><a>Email : muhammedabdurhamn@gmail.com</a></li>
+										<li><a >Email : saleh.mohamed9900@gmail.com</a></li>
+										<li><a>Email : Doaaelgindy76@gmail.com</a></li>
+
+									</ul>
+								</div>
+							</div>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+</div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap-4.1.2/popper.js"></script>
@@ -85,6 +134,24 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/progressbar/progressbar.min.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/blog.js"></script>
+<!--   Core JS Files   -->
+    <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Charts Plugin -->
+	<script src="assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+	<script src="assets/js/demo.js"></script>
 </body>
 </html>
