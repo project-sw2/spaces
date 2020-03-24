@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2020 at 10:09 AM
+-- Generation Time: Mar 23, 2020 at 02:51 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `spaces`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
@@ -36,15 +36,6 @@ CREATE TABLE `booking` (
   `workspacename` varchar(255) NOT NULL,
   `Book_approve` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `booking`
---
-
-INSERT INTO `booking` (`id`, `room_id`, `room_name`, `user_name`, `workspacename`, `Book_approve`) VALUES
-(5, 19, 'ROOF', 'omar_mohamed.29', 'Roof Workspace', 0),
-(6, 21, 'Roof-Room3', 'omar_mohamed.29', 'Roof Workspace', 0),
-(7, 16, 'big room 3', 'omar_mohamed.29', 'Areka', 1);
 
 -- --------------------------------------------------------
 
@@ -80,11 +71,10 @@ CREATE TABLE `times` (
 
 INSERT INTO `times` (`id`, `times_fk`, `room_name`, `status`, `date`, `from_time`, `to_time`) VALUES
 (1, 2, 'hall', 1, '2019-04-25', '06:00:00.000000', '08:00:00.000000'),
-(12, 2, 'room4', 1, '2020-12-31', '00:59:00.000000', '00:00:00.000000'),
 (16, 2, 'big room 3', 0, '2020-12-31', '12:59:00.000000', '12:59:00.000000'),
-(19, 6, 'ROOF', 0, '2020-01-01', '01:00:00.000000', '13:00:00.000000'),
+(19, 6, 'ROOF', 1, '2020-01-01', '01:00:00.000000', '13:00:00.000000'),
 (20, 6, 'Room - Room 2 ', 1, '2021-01-01', '13:00:00.000000', '14:00:00.000000'),
-(21, 6, 'Roof-Room3', 0, '2021-02-03', '14:01:00.000000', '14:30:00.000000');
+(21, 6, 'Roof-Room3', 1, '2021-02-03', '14:01:00.000000', '14:30:00.000000');
 
 -- --------------------------------------------------------
 
