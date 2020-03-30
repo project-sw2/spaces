@@ -87,7 +87,7 @@ else
 						<div class="log_reg">
 							<div class="log_reg_content d-flex flex-row align-items-center justify-content-start">
 								<div class="login log_reg_text"><a href="WSpaceProfile.php"><?php echo $data['name']; ?></a></div>
-								<div class="register log_reg_text"><a href="index.php">Logout</a></div>
+								<div class="register log_reg_text"><a href="classes/logout.php">Logout</a></div>
 							</div>
 						</div>
 						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -112,7 +112,6 @@ else
 							<div class="home_title"><?php echo $_SESSION['admin']; ?></div>
 							<div class="breadcrumbs">
 								<ul class="d-flex flex-row align-items-center justify-content-start">
-									<li><a href="WSpaceProfile.php">Profile</a></li>
 									<li>Dashboard</li>
 								</ul>
 							</div>

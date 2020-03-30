@@ -29,8 +29,7 @@
 						<nav class="main_nav ml-auto mr-auto">
 							<ul class="d-flex flex-row align-items-center justify-content-start">
 								<li><a href="index.php">Home</a></li>
-								<li><a href="aboutUs.php">About us</a></li>
-								<li><a href="contact.php">Contact</a></li>
+								
 							</ul>
 						</nav>
 						<div class="log_reg">

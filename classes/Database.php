@@ -3,7 +3,6 @@ include_once('connect.php');
 class user  extends connection
 {
 	
-
 	public function logsys($Email , $password)
 	{
 		$sql = "SELECT * FROM workspaces WHERE email = '$Email' AND password = '$password'" ;
@@ -44,7 +43,25 @@ class user  extends connection
 	}
 
 
+	public function getworkspacedata()
+	{
+		$sql = "SELECT * FROM workspaces WHERE groupid = 1 ";
+	    $result = $this->Connect()->query($sql);
+	    $numrows = $result->num_rows;
+	    if($numrows > 0)
+	  {
+	  	while ($row = $result->fetch_assoc()) {
+	  		$data[] = $row ;
+	  }
+	  return $data;
+	  }
+
+	}
+
+	
 }
+
+
 
 ?>
 
