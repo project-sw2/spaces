@@ -6,25 +6,30 @@ include_once ('connect.php');
 class  WSPACEPROF extends connection
 {
 	
-	
+	public function Editprofile($email, $password , $price , $location , $description , $username )
+	{
+		$sql = "UPDATE workspaces SET email = '$email' , password = '$password' , price = '$price' , location = '$location' , description = '$description' WHERE Username = '$username' ";
+
+	  	$result = $this->Connect()->query($sql);
+
+	}
 	public function timetable($userid)
 	{
 		$sql="SELECT * FROM times INNER JOIN workspaces ON times.times_fk = workspaces.id WHERE workspaces.id = '$userid' ";
 		$result = $this->Connect()->query($sql);
 	    $numrows = $result->num_rows;
-	    if($numrows > 0)
+	    if($numrows >= 0)
 	  {
 	  	while ($row = $result->fetch_assoc()) {
 	  		$data[] = $row ;
-
+	  			  return $data;
 	  }
-	  return $data;
+
 
 	  }
 	  else {echo "";}
 	}
 
-	
 
 	public function showalltables($userid)
 	{
@@ -63,7 +68,9 @@ class  WSPACEPROF extends connection
 	  	$result = $this->Connect()->query($sql);
 	}
 
-	
-	}
+
+}
+
+
 
 ?>

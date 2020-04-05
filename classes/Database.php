@@ -3,6 +3,8 @@ include_once('connect.php');
 class user  extends connection
 {
 	
+	
+
 	public function logsys($Email , $password)
 	{
 		$sql = "SELECT * FROM workspaces WHERE email = '$Email' AND password = '$password'" ;
@@ -57,9 +59,9 @@ class user  extends connection
 	  }
 
 	}
-
 	
-}
+
+	}
 
 
 

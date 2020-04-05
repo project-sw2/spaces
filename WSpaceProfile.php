@@ -181,6 +181,39 @@ else
   </div>
 </div>
 
+<div class="card" style="margin-top: 25px; margin-right: 80px; margin-left: 80px ; margin-bottom: 25px;">
+    <div class="card-body">
+      <h5 class="card-title">Edit profile</h5>
+      <form accept="<?php echo $_SERVER ["PHP_SELF"] ;?>" method="POST">
+           <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new User-name" name="email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+            <small id="emailHelp" class="form-text text-muted">we won't share this with anyone </small>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">price</label>
+            <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new User-name" name="price">
+          </div>  
+
+             <div class="form-group">
+            <label for="exampleInputEmail1">location</label>
+            <input type="textarea" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new User-name" name="location">
+          </div>  
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">description</label>
+            <input type="textarea" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new User-name" name="description">
+          </div> 
+          <button type="submit" class="btn btn-primary" style="width:350px ; margin-left: 400px">Submit</button>
+        </form>
+  </div>
+</div>
+
 
 	<!-- Footer -->
 
