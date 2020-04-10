@@ -1,53 +1,23 @@
-<<<<<<< HEAD
 <?php
 session_start();
 include_once ('classes/session.php');
-include_once('classes/Database.php');
-
+include_once ('classes/Admin.php');
 $collector = new  session();
-
 $data = $collector->retuningdata($_SESSION['admin']);
-$uploader = new user();
-if(isset($_POST))
+$update = new admin();
+if(isset($_POST ['email']) ||  isset($_POST['password']) || isset($_POST['name']) || isset($_POST['username']) )
 {
-$name = $_SESSION['admin'];
+$name = $_POST['name'];	
+$email = $_POST['email'];
+$password = $_POST['password'];
+$update->Editprofile($email , $password,$name,$_SESSION['admin']);
 }
-
-
-?>
-
-<html>
-<body>   
-
-
-  <p> this admin profile </p>
-
-
-	
-</body>
-</html>
-=======
-<?php
-session_start();
-include_once ('classes/session.php');
-include_once('classes/Database.php');
-include_once('classes/Admin.php');
-
-$collector = new  session();
-
-$data = $collector->retuningdata($_SESSION['admin']);
-$uploader = new user();
-if(isset($_POST))
-{
-$name = $_SESSION['admin'];
-}
-
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Profile</title>
+<title>Admin|Profile</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="HostSpace template project">
@@ -59,46 +29,25 @@ $name = $_SESSION['admin'];
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/blog.css">
 <link rel="stylesheet" type="text/css" href="styles/blog_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/workspace.css" >
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-    
-    <style>
-    
-    .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-}
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
 
-.title {
-  color: grey;
-  font-size: 18px;
-}
 
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #321456;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
-
-button:hover, a:hover {
-  opacity: 0.7;
-}
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <style type="text/css">
+    	.form-group
+    	{
+    		margin-left: 400px;
+    		margin-right: 400px;
+    	}
     </style>
+</head>
 <body>
 
 <div class="super_container">
@@ -110,20 +59,20 @@ button:hover, a:hover {
 			<div class="row">
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
-						<div class="logo"><a href="#"><span>SpaceS</span></a></div>
+						<div class="logo"><a href="#.php"><span>SpaceS</span></a></div>
 						<nav class="main_nav ml-auto mr-auto">
 							<ul class="d-flex flex-row align-items-center justify-content-start">
 				                <li  class="active"><a href="profile.php">Profile</a></li>
-				                <li  ><a href="Dashboard.php">DashBoard</a></li>
+				                <li><a href="dashboard.php">Dashboard</a></li>
+								
 							</ul>
 						</nav>
-							<div class="log_reg">
+						<div class="log_reg">
 							<div class="log_reg_content d-flex flex-row align-items-center justify-content-start">
-								<div class="login log_reg_text"><a href="Profile.php"><?php echo $data['name']; ?></a></div>
+								<div class="login log_reg_text"><a href="profile.php"><?php echo $data['name']; ?></a></div>
 								<div class="register log_reg_text"><a href="classes/Logout.php">Logout</a></div>
 							</div>
 						</div>
-						
 						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
 					</div>
 				</div>
@@ -146,8 +95,8 @@ button:hover, a:hover {
 							<div class="home_title"><?php echo $_SESSION['admin']; ?></div>
 							<div class="breadcrumbs">
 								<ul class="d-flex flex-row align-items-center justify-content-start">
-									<li><a href="Profile.php">profile</a></li>
-									<li><a href="Dashboard.php">DashBoard</a></li>
+									<li>My Profile</li>
+									<li><a href="dashboard.php">dashboard</a></li>
 								</ul>
 							</div>
 						</div>
@@ -157,22 +106,43 @@ button:hover, a:hover {
 		</div>
 	</div>
 
+	<!-- Profile -->
 	
-	<!--profile card -->
 
-	<div class="news">
-		<div class="container">
-			
-            <div class="card">
-                      <h2><?php echo "Hello, ". $data['name']; ?></h2>
-                      <p class="title">Admin</p>
-                      <p><?php echo $data['email'];?></p>
 
-                      <p><button> <a href="AdminEditprofile.php">Edit profile </a></button></p>
-                    </div>
-            
+	
+<div class="card" style="margin-top: 25px; margin-right: 80px; margin-left: 80px ; margin-bottom: 25px;">
+    <div class="card-body" >
+      <h5 class="card-title" style="text-align: center; color: darkblue">My Information</h5>
+      <p class="card-text" style="font-weight: bold;text-align: center;"><?php echo "Name : " . $data['name']; ?></p>
+      <p class="card-text" style="font-weight: bold;text-align: center;"><?php echo "Email : " . $data['email']; ?></p>
+      <p class="card-text" style="font-weight: bold;text-align: center;"><?php echo "Username : " . $data['Username']; ?></p>
+  </div>
+</div>
+
+<div class="card" style="margin-top: 25px; margin-right: 80px; margin-left: 80px ; margin-bottom: 25px;">
+    <div class="card-body">
+      <h5 class="card-title">Edit Profile</h5>
+     <form accept="<?php echo $_SERVER ["PHP_SELF"] ;?>" method="POST">
+				   <div class="form-group">
+				    <label for="exampleInputEmail1">Email</label>
+				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new Email" name="email">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">Password</label>
+				    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+				    <small id="emailHelp" class="form-text text-muted">we won't share this with anyone </small>
+				  </div>
+				   <div class="form-group">
+				    <label for="name">name</label>
+				    <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Change your view name" name="name">
+				  </div>
+				  <button type="submit" class="btn btn-primary" style="width: 350px;margin-top: 20px; margin-left: 400px  ">Submit</button>
+				</form>
+ 		 </div>
 		</div>
-	</div>
+
+
 
 	<!-- Footer -->
 
@@ -261,4 +231,3 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="assets/js/demo.js"></script>
 </body>
 </html>
->>>>>>> First commit
