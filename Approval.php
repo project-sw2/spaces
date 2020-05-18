@@ -1,52 +1,27 @@
-<<<<<<< HEAD
 <?php
 session_start();
 include_once ('classes/session.php');
-include_once('classes/Database.php');
-
+include_once ('classes/workspace.php');
+include_once ('classes/showdata.php');
 $collector = new  session();
-
 $data = $collector->retuningdata($_SESSION['admin']);
-$uploader = new user();
-if(isset($_POST))
+$handler = new WSPACEPROF();
+
+if(isset($_POST['report']))
 {
-$name = $_SESSION['admin'];
+	$username = $_SESSION['admin'];
+	$report =  $_POST['report'];
+	$handler->reports($username , $report);
 }
-
-
-?>
-
-<html>
-<body>   
-
-
-  <p> this admin profile </p>
-
-
-	
-</body>
-</html>
-=======
-<?php
-session_start();
-include_once('classes/session.php');
-include_once('classes/Database.php');
-include_once('classes/Admin.php');
-
-$collector = new  session();
-
-$data = $collector->retuningdata($_SESSION['admin']);
-$uploader = new user();
-if (isset($_POST)) {
-    $name = $_SESSION['admin'];
+else
+{
+	//;
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Profile</title>
+<title>WorkSpace|Profile</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="HostSpace template project">
@@ -58,46 +33,19 @@ if (isset($_POST)) {
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/blog.css">
 <link rel="stylesheet" type="text/css" href="styles/blog_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/workspace.css" >
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
 </head>
-    
-    <style>
-    
-    .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-}
-
-.title {
-  color: grey;
-  font-size: 18px;
-}
-
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #321456;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
-
-button:hover, a:hover {
-  opacity: 0.7;
-}
-    </style>
 <body>
 
 <div class="super_container">
@@ -112,17 +60,16 @@ button:hover, a:hover {
 						<div class="logo"><a href="#"><span>SpaceS</span></a></div>
 						<nav class="main_nav ml-auto mr-auto">
 							<ul class="d-flex flex-row align-items-center justify-content-start">
-				                <li  class="active"><a href="profile.php">Profile</a></li>
-				                <li  ><a href="Dashboard.php">DashBoard</a></li>
+				                <li ><a href="WSpaceProfile.php">Dashboard</a></li>
+								<li class="active"><a href="Approval.php">Approval</a></li>
 							</ul>
 						</nav>
-							<div class="log_reg">
+						<div class="log_reg">
 							<div class="log_reg_content d-flex flex-row align-items-center justify-content-start">
-								<div class="login log_reg_text"><a href="Profile.php"><?php echo $data['name']; ?></a></div>
+								<div class="login log_reg_text"><a href="WSpaceProfile.php"><?php echo $data['name']; ?></a></div>
 								<div class="register log_reg_text"><a href="classes/Logout.php">Logout</a></div>
 							</div>
 						</div>
-						
 						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
 					</div>
 				</div>
@@ -145,8 +92,8 @@ button:hover, a:hover {
 							<div class="home_title"><?php echo $_SESSION['admin']; ?></div>
 							<div class="breadcrumbs">
 								<ul class="d-flex flex-row align-items-center justify-content-start">
-									<li><a href="Profile.php">profile</a></li>
-									<li><a href="Dashboard.php">DashBoard</a></li>
+									<li><a href="WSpaceProfile.php">Dashboard</a></li>
+									<li>Approval </li>
 								</ul>
 							</div>
 						</div>
@@ -155,23 +102,33 @@ button:hover, a:hover {
 			</div>
 		</div>
 	</div>
+<!--Approval section-->	
 
-	
-	<!--profile card -->
+	<div class="card" style="margin-top: 25px; margin-right: 80px; margin-left: 80px ; margin-bottom: 25px;">
+    <div class="card-body">
+      <h5 class="card-title" style="text-align: center; color: darkblue">Rooms Approval</h5>
+      <table class="table table-striped">
+			<thead>
+				 <tr>
+					<th scope="col">room id</th>
+					<th scope="col">room name</th>
+					<th scope="col">username</th>
 
-	<div class="news">
-		<div class="container">
+					</tr>
+			</thead>
+			<?php
+			$workspace = $data['name'];
+			$handler->showallbook($workspace);
+			?>
 			
-            <div class="card">
-                      <h2><?php echo "Hello, ". $data['name']; ?></h2>
-                      <p class="title">Admin</p>
-                      <p><?php echo $data['email'];?></p>
-
-                      <p><button> <a href="AdminEditprofile.php">Edit profile </a></button></p>
-                    </div>
-            
-		</div>
+	</table>
+    </div>
 	</div>
+
+
+			
+    
+			
 
 	<!-- Footer -->
 
@@ -260,4 +217,3 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="assets/js/demo.js"></script>
 </body>
 </html>
->>>>>>> First commit

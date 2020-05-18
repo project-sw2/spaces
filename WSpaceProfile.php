@@ -383,10 +383,18 @@ else
 			<div class="row">
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
+<<<<<<< HEAD
 						<div class="logo"><a href=""><span>SpaceS</span></a></div>
 						<nav class="main_nav ml-auto mr-auto">
 							<ul class="d-flex flex-row align-items-center justify-content-start">
 				                <li  class="active"><a href="WSpaceProfile.php">Dashboard</a></li>
+=======
+						<div class="logo"><a href="#"><span>SpaceS</span></a></div>
+						<nav class="main_nav ml-auto mr-auto">
+							<ul class="d-flex flex-row align-items-center justify-content-start">
+				                <li  class="active"><a href="WSpaceProfile.php">Dashboard</a></li>
+				                <li ><a href="Approval.php">Approval</a></li>
+>>>>>>> First commit
 					
 							</ul>
 						</nav>
@@ -419,6 +427,10 @@ else
 							<div class="breadcrumbs">
 								<ul class="d-flex flex-row align-items-center justify-content-start">
 									<li>Dashboard</li>
+<<<<<<< HEAD
+=======
+									<li><a href="Approval.php">Approval</a></li>
+>>>>>>> First commit
 								</ul>
 							</div>
 						</div>
@@ -607,5 +619,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 </body>
+<<<<<<< HEAD
+</html>
+>>>>>>> First commit
+=======
 </html>
 >>>>>>> First commit

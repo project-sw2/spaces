@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 session_start();
 include_once ('classes/session.php');
@@ -234,6 +235,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </body>
 </html>
 =======
+=======
+>>>>>>> First commit
 <?php
 session_start();
 include_once ('classes/session.php');
@@ -378,6 +381,27 @@ $update->Editprofile($email , $password,$name,$_SESSION['admin']);
 				</form>
  		 </div>
 		</div>
+<<<<<<< HEAD
+=======
+		<div class="card" style="margin-top: 25px; margin-right: 80px; margin-left: 80px ; margin-bottom: 25px;">
+    <div class="card-body" >
+      <h5 class="card-title">Pending Requests</h5>
+      <table class='table table-striped'>
+				  	<thead>
+				    <tr>
+				      <th scope='col'>room_name</th>
+				      <th scope='col'>approve status</th>
+				    </tr>
+				</thead>
+
+					 <?php
+					 $name = $data['Username'];
+					  $update->showrequests($name);?>
+     </table>
+  </div>
+	</div>
+
+>>>>>>> First commit
 
 
 
@@ -467,5 +491,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 </body>
+<<<<<<< HEAD
+</html>
+>>>>>>> First commit
+=======
 </html>
 >>>>>>> First commit

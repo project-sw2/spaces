@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php 
 include_once ('database.php');
 include_once ('Workspace.php');
@@ -80,6 +81,39 @@ class viewuser  extends user
 	  	$send =  $data['name'];
 	  	$usnam = $data['Username'];
 	 	echo " 
+=======
+<?php
+include_once('database.php');
+include_once('Workspace.php');
+class viewuser extends user
+{
+    public function showallusers()
+    {
+        $Datas = $this->getworkspacedata();
+
+        foreach ($Datas as $data) {
+            echo "<tbody>";
+            echo "<tr>";
+            echo " <th scope='row'>".$data['id']."</th>";
+            echo " <td>".$data['name']."</td>";
+            echo " <td>".$data['email']."</td>";
+            echo " <td>".$data['price']."</td>";
+            echo "</tr>";
+            echo "</tbody>";
+        }
+    }
+
+
+
+    public function View_Index()
+    {
+        $Datas = $this->getworkspacedata() ;
+        {
+      foreach ($Datas as $data) {
+          $send =  $data['name'];
+          $usnam = $data['Username'];
+          echo " 
+>>>>>>> First commit
 	 		<div class=' d-inline'>
 
 				<!-- Service -->
@@ -97,6 +131,7 @@ class viewuser  extends user
 				</div>
 				</div>
 			";
+<<<<<<< HEAD
 
 		  }
 		}
@@ -105,6 +140,52 @@ class viewuser  extends user
 
 	
 }
+
+
+?>
+
+>>>>>>> First commit
+=======
+      }
+        }
+	}
+	public function dropdown($workspace)
+    {
+        $Datas = $this->getworkspacetime($workspace) ;
+        if ($Datas != null) {
+            echo "<div class='row'>
+					<div class='col-lg-10 offset-lg-3'>
+						<form method='POST'>
+							<div class='dropdown'>
+								<div class='select'>
+							 <select name='Book'> ";
+
+            foreach ($Datas as $data) {
+                echo "
+	  		
+	  	       <option>
+	  	       ".$data['room_name']."</option>
+	  	       <option  disabled> <p> <div style='color:white;  text-align: left;'>- <b> Date : </b> ".$data['date']." - <b> Free from :  </b> ".$data['from_time']."  - <b> Free to : </b>  ".$data['to_time']."<div></p>		    </option>	
+
+	  	";
+            }
+            echo "</select>
+				</div>
+				<input type='hidden' value='0' name='approve'>
+				<input type='submit' class='submit' ' name='submit'>
+				</div>
+				</form> ";
+        } else {
+            echo "
+	  	       <option name='Book'>
+	  	          this workspace has not available rooms
+	  	      </option>			    
+	  	";
+        }
+    }
+}
+
+
 
 
 ?>

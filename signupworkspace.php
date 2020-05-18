@@ -339,5 +339,9 @@ if(isset($_POST ['email_']) &&  isset($_POST['password_']))
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/custom.js"></script>
 </body>
+<<<<<<< HEAD
+</html>
+>>>>>>> First commit
+=======
 </html>
 >>>>>>> First commit

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 session_start();
 include_once('classes/showdata.php');
@@ -192,6 +193,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 session_start();
 include_once('classes/showdata.php');
 include_once ('classes/session.php');	
+=======
+<?php
+session_start();
+include_once('classes/showdata.php');
+include_once('classes/session.php');
+>>>>>>> First commit
 
 $coll = new  session();
 $info = $coll->retuningdata($_SESSION['admin']);
@@ -275,6 +282,7 @@ $view = new viewuser();
 		</div>
 	</div>
 				
+<<<<<<< HEAD
 						<?php 		
 						if (isset($_POST ['home_search']))
 						{	
@@ -286,6 +294,16 @@ $view = new viewuser();
 						}
 						
 						?>
+=======
+						<?php
+                        if (isset($_POST ['home_search'])) {
+                            $view->search_Index($_POST['home_search']);
+                        } else {
+                            $view->view_index();
+                        }
+                        
+                        ?>
+>>>>>>> First commit
 						
 
 
@@ -376,4 +394,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="assets/js/demo.js"></script>
 </body>
 </html>
+<<<<<<< HEAD
+>>>>>>> First commit
+=======
 >>>>>>> First commit
