@@ -86,11 +86,13 @@ if(isset($_POST['Book']))
 			<div class="row">
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
-						<div class="logo"><a href="#"><span>SpaceS</span></a></div>
+						<div class="logo"><a href="index.php"><span>SpaceS</span></a></div>
 						<nav class="main_nav ml-auto mr-auto">
 							<ul class="d-flex flex-row align-items-center justify-content-start">
-								<li><a href="Userprofile.php">profile</a></li> 			
+								<li><a href="index.php">Home</a></li> 			
               					<li class="active"><a href="WorkSpaces.php">WorkSpaces</a></li>
+								<li><a href="aboutUs.php">About us</a></li>
+								<li><a href="contact.php">Contact</a></li>
 							</ul>
 						</nav>
 						
