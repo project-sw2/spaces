@@ -88,6 +88,10 @@ class Admin extends user
                 echo " <td>".$data['name']."</td>";
                 echo " <td>".$data['email']."</td>";
                 echo " <td>".$data['price']."</td>";
+                echo "<td scope='col'> <form method = 'POST'>
+                   <input type='hidden' value='".$data['name']."' name='hidden'>
+                   <input type='submit' class='btn btn-warning' Value='delete' name='delete'>
+                  </form>  </td>";
                 echo "</tr>";
                 echo "</tbody>";
             }
@@ -119,5 +123,17 @@ class Admin extends user
         $result = $this->Connect()->query($sql);
     }
     
-    
+    //delete user from system
+    public function delete_user($Username, $id)
+    {
+        $sql2 = "SELECT * FROM  workspaces WHERE Username = '$Username' ";
+        $results = $this->Connect()->query($sql2);
+        $numrows = $results->num_rows;
+        if ($numrows > 0) {
+            $sql = "DELETE FROM workspaces WHERE Username = '$Username' ";
+            $result = $this->Connect()->query($sql);
+        } else {
+            echo "no users " ;
+        }
+    }
 }

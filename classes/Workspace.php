@@ -145,10 +145,6 @@ class WSPACEPROF extends connection
 	  	//
 	  }
 	}
+
 	
-	public function reports($report , $username)
-	{	
-		$sql = "INSERT INTO reports(report , user_name) VALUES ('$report' , '$username') ";
-		$result = $this->Connect()->query($sql);
-	}
 }
