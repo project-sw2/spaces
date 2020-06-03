@@ -19,6 +19,36 @@ class viewuser extends user
         }
     }
 
+    public function search_Index($name)
+    {
+        if ($Datas = $this->search($name)) {
+            foreach ($Datas as $data) {
+                echo " 
+	 		<div class='row services_row'>
+
+				<!-- Service -->
+				<div class='col-lg-4 col-md-6 service_col magic_fade_in'>
+					<div class='service d-flex flex-column align-items-center justify-content-start text-center trans_200'>
+						<div class='service_icon'><img class='svg' src='images/icon_4.svg' ></div>
+	 		<div ><h3>".$data['name']."</h3></div>
+			<div >
+			<p><b>PRICE</b> : " .$data['price']."</p>
+			<p><b>LOCATION</b> : ".$data['location']."</p>
+			<p><b>About Us</b> : ".$data['description']."</p>
+			</div>
+			<div class='service_button trans_200'><a href='#'>Read More</a></div>
+					</div>
+				</div>
+
+
+				</div>
+			";
+            }
+        } else {
+            echo "no results found ! ";
+        }
+    }
+
 
 
     public function View_Index()

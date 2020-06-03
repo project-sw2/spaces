@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once ('classes/Admin.php');
-include_once ('classes/session.php');
-include_once ('classes/Database.php');
+include_once('classes/Admin.php');
+include_once('classes/session.php');
+include_once('classes/Database.php');
 $collector = new  session();
 
 $data = $collector->retuningdata($_SESSION['admin']);
@@ -83,6 +83,35 @@ $searching= new user();
 
 <div class="card" style="margin: 25px">
     <div class="card-body">
+      <h5 class="card-title">Search</h5>
+       <ul class="content">
+                <form method="POST">
+		    <div class="md-form active-purple active-pink-2 mb-3 mt-0">
+		  <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search" style="text-align: center; margin-left: 250px;">
+		 	 </form>
+		</div>
+		 <table class="table table-striped">
+		<?php
+        if (isset($_POST ['search'])) {
+            echo "<thead>";
+            echo "<tr>";
+            echo "<th scope='col'>#</th>";
+            echo "<th scope='col'>name</th>";
+            echo " <th scope='col'>email</th>";
+            echo "<th scope='col'>price</th>";
+            echo "</tr>";
+            echo "</thead>";
+
+            $showing->searching($_POST ['search']);
+        }
+        ?>
+	</table>
+     </ul>
+  </div>
+</div>
+
+<div class="card" style="margin: 25px">
+    <div class="card-body">
       <h5 class="card-title">All work spaces</h5>
         <table class="table table-striped">
               		
@@ -115,6 +144,13 @@ $searching= new user();
 		</thead>
     			<?php $showing->showallusersonsys();?>
     		</table>
+  </div>
+</div>
+
+<div class="card" style="margin: 25px">
+    <div class="card-body">
+      <h5 class="card-title">Reports</h5>
+ 	<?php $showing->showallreports();?>   		
   </div>
 </div>
 

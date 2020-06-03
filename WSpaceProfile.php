@@ -82,6 +82,7 @@ else
 							<ul class="d-flex flex-row align-items-center justify-content-start">
 								<li  class="active"><a href="WSpaceProfile.php">Dashboard</a></li>
 								<li ><a href="reports.php">Approval</a></li>
+								<li ><a href="reports2.php">reports</a></li>
 					
 							</ul>
 						</nav>

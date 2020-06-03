@@ -19,59 +19,67 @@ class Admin extends user
         }
     }
 
+    public function searching($name)
+    {
+        if ($Datas = $this->search($name)) {
+            foreach ($Datas as $data) {
+                echo "<tbody>";
+                echo "<tr>";
+                echo " <th scope='row'>".$data['id']."</th>";
+                echo " <td>".$data['name']."</td>";
+                echo " <td>".$data['email']."</td>";
+                echo " <td>".$data['price']."</td>";
+                echo "</tr>";
+                echo "</tbody>";
+            }
+        } else {
+            echo "not exists";
+        }
+    }
+
     
     
     //list all workspaces in the database
-	public function showallusers()
-	{
-	  $Datas = $this->getworkspacedata();
-		if($Datas!=null)
-		{
-	  foreach ($Datas as $data) {
-	  	echo "<tbody>";
-	  	echo "<tr>";
-	  	echo " <th scope='row'>".$data['id']."</th>";
-	  	echo " <td>".$data['name']."</td>";
-	  	echo " <td>".$data['email']."</td>";
-	  	echo " <td>".$data['price']."</td>";
-	  	echo "<td scope='col'> <form method = 'POST'>
+    public function showallusers()
+    {
+        $Datas = $this->getworkspacedata();
+        if ($Datas!=null) {
+            foreach ($Datas as $data) {
+                echo "<tbody>";
+                echo "<tr>";
+                echo " <th scope='row'>".$data['id']."</th>";
+                echo " <td>".$data['name']."</td>";
+                echo " <td>".$data['email']."</td>";
+                echo " <td>".$data['price']."</td>";
+                echo "<td scope='col'> <form method = 'POST'>
 		     <input type='hidden' value='".$data['name']."' name='hidden'>
 		     <input type='submit' class='btn btn-success' Value='Unblock' name='Unblock'>
 		     <input type='submit' class='btn btn-danger' Value='Block' name='block'>
 		     <input type='submit' class='btn btn-warning' Value='delete' name='delete'>
             </form>  </td>";
-	  	echo "</tr>";
-	  	echo "</tbody>";
-	  }
-	}
-	else
-	{
-	echo "no workspaces to view";
-	}
-	 if(isset($_POST['block']))
-	  {
-	  	$wokrspace_Username = $data['Username'];
-	  	$this->block_workspace($wokrspace_Username);
-	  	echo "workspace : ".$data['name']." has been blocked from this system";
-	  }
-	  elseif(isset($_POST['Unblock']))
-	  {
-	  	$wokrspace_Username = $data['Username'];
-	  	$this->unblock_workspace($wokrspace_Username);
-	  	echo "workspace : ".$data['name']." has been Un-blocked from this system";
-	  }
-	  elseif(isset($_POST['delete']))
-	  {
-	  	$wokrspace_Username = $data['Username'];
-	  	$id = $data['id'];
-	  	$this->delete_workspace($wokrspace_Username ,$id );
-	  	echo "workspace : ".$data['name']." has been deleted from this system";
-	  }
-	  else
-	  {
-	  	//
-	  }
-	}
+                echo "</tr>";
+                echo "</tbody>";
+            }
+        } else {
+            echo "no workspaces to view";
+        }
+        if (isset($_POST['block'])) {
+            $wokrspace_Username = $data['Username'];
+            $this->block_workspace($wokrspace_Username);
+            echo "workspace : ".$data['name']." has been blocked from this system";
+        } elseif (isset($_POST['Unblock'])) {
+            $wokrspace_Username = $data['Username'];
+            $this->unblock_workspace($wokrspace_Username);
+            echo "workspace : ".$data['name']." has been Un-blocked from this system";
+        } elseif (isset($_POST['delete'])) {
+            $wokrspace_Username = $data['Username'];
+            $id = $data['id'];
+            $this->delete_workspace($wokrspace_Username, $id);
+            echo "workspace : ".$data['name']." has been deleted from this system";
+        } else {
+            //
+        }
+    }
     
     
     
@@ -134,6 +142,24 @@ class Admin extends user
             $result = $this->Connect()->query($sql);
         } else {
             echo "no users " ;
+        }
+    }
+
+    public function showallreports()
+    {
+        $Datas = $this->getReports();
+        if ($Datas!=null) {
+            foreach ($Datas as $data) {
+                echo "<div class='card' style='margin:20px'>
+  		<ul class='list-group list-group-flush'>
+   		 <li class='list-group-item'>Reporter Name : ".$data['user_name']."</li>
+    	<li class='list-group-item'>Report Content : ".$data['report']."</li>
+ 		 </ul>
+		</div>
+		"    ;
+            }
+        } else {
+            echo "You have no reports";
         }
     }
 }

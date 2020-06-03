@@ -16,6 +16,21 @@ class user extends connection
         }
     }
 
+    public function search($name)
+    {
+        $sql = "SELECT * FROM workspaces WHERE groupid = 1 AND name = '$name' ";
+        $result = $this->Connect()->query($sql);
+        $numrows = $result->num_rows;
+        if ($numrows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row ;
+            }
+            return $data;
+        } else {
+            echo "";
+        }
+    }
+
     public function getallusersonly()
     {
         $sql = "SELECT * FROM workspaces WHERE groupid = 2 ";
@@ -114,34 +129,45 @@ class user extends connection
         } else {
             return null;
         }
-	}
-	
-	public function selectTimedata($name)
-	{
-		$sql = "SELECT * FROM times WHERE room_name = '$name'";
-	    $result = $this->Connect()->query($sql);
-	    $numrows = $result->num_rows;
-		  if($numrows > 0)
-		  {
-		  	$row = $result->fetch_assoc();
-	  		return $row;
-		  }
-	}
+    }
+    
+    public function selectTimedata($name)
+    {
+        $sql = "SELECT * FROM times WHERE room_name = '$name'";
+        $result = $this->Connect()->query($sql);
+        $numrows = $result->num_rows;
+        if ($numrows > 0) {
+            $row = $result->fetch_assoc();
+            return $row;
+        }
+    }
 
-	public function getrequestsus($username)
-	{
+    public function getrequestsus($username)
+    {
+        $sql = "SELECT * FROM booking WHERE user_name = '$username'";
+        $result = $this->Connect()->query($sql);
+        $numrows = $result->num_rows;
+        if ($numrows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row ;
+            }
+            return $data;
+        }
+    }
 
-		$sql = "SELECT * FROM booking WHERE user_name = '$username'";
-	    $result = $this->Connect()->query($sql);
-	    $numrows = $result->num_rows;
-	    if($numrows > 0)
-	  {
-	  	while ($row = $result->fetch_assoc()) {
-	  		$data[] = $row ;
-	  }
-	  return $data;
-	  }
-	}
+    public function getReports()
+    {
+        $sql = "SELECT * FROM reports";
+        $result = $this->Connect()->query($sql);
+        $numrows = $result->num_rows;
+        if ($numrows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row ;
+            }
+      
+            return $data;
+        }
+    }
 }
 
 
